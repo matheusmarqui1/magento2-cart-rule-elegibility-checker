@@ -1,0 +1,14 @@
+{
+    "name": "ytec/rule-eligibility-check",
+    "description": "Rule eligibility checker for Magento 2",
+    "type": "magento2-module",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Ytec\\RuleEligibilityCheck\\": ""
+        }
+    }
+}

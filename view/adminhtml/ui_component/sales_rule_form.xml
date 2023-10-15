@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="rule_information">
+        <field name="rule_eligibility_test" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Customer Id to test rule eligibility</item>
+                    <item name="component" xsi:type="string">Ytec_RuleEligibilityCheck/js/form/element/input</item>
+                    <item name="template" xsi:type="string">ui/form/field</item>
+                    <item name="elementTmpl" xsi:type="string">Ytec_RuleEligibilityCheck/form/element/input</item>
+                    <item name="getEligibilityUrl" xsi:type="url" path="ytec_ruleeligibilitycheck/eligibility/check"/>
+                    <item name="tooltip" xsi:type="array">
+                        <item name="description" xsi:type="string" translate="true">This feature allows you to manually test rule eligibility for a given customer ID. It checks various conditions such as customer group, cart attributes, and active promotions before determining if the rule is applicable.</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

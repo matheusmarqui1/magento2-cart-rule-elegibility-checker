@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Ytec\RuleEligibilityCheck\Api\RuleEligibilityCheckInterface" type="Ytec\RuleEligibilityCheck\Model\RuleEligibilityCheck"/>
+    <type name="Ytec\RuleEligibilityCheck\Model\RuleEligibilityCheck">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="dateProcessor" xsi:type="object">Ytec\RuleEligibilityCheck\Model\Processor\DateValidationProcessor</item>
+                <item name="shippingAddressProcessor" xsi:type="object">Ytec\RuleEligibilityCheck\Model\Processor\ShippingAddressValidationProcessor</item>
+                <item name="ruleConditionsProcessor" xsi:type="object">Ytec\RuleEligibilityCheck\Model\Processor\RuleConditionsValidatorProcessor</item>
+                <item name="itemActionsProcessor" xsi:type="object">Ytec\RuleEligibilityCheck\Model\Processor\ItemActionsValidatorProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

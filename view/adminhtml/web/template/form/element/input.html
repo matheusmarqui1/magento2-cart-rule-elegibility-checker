@@ -1,0 +1,19 @@
+<div class="rule-eligibility-check">
+    <input class="admin__control-text" type="text" data-bind="value: value">
+    <div class="bottom-container">
+        <button class="validate-button" type="button" data-bind="click: update">
+            <!-- ko i18n: 'Validate' --><!-- /ko -->
+        </button>
+        <div class="message"
+             data-bind="
+            css: {
+                'message-success': success(),
+                'message-error': !success()
+            },
+            html: messageText,
+            visible: messageText().length > 0">
+        </div>
+    </div>
+    <div class="dev-by-logo"></div>
+</div>
+

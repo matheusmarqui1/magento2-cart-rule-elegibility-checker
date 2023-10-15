@@ -1,0 +1,39 @@
+& when (@media-common = true) {
+    div[data-index="rule_eligibility_test"] {
+        .admin__field-tooltip {
+            top: 0;
+            right: 22%;
+            position: absolute;
+        }
+    }
+    .rule-eligibility-check {
+        .bottom-container {
+            display: flex;
+            flex-direction: row-reverse;
+
+            .validate-button {
+                margin-top: 10px;
+                float: right;
+            }
+            .message {
+                margin-top: 10px;
+                width: 100%;
+                color: #FFFFFF;
+                &.message-error {
+                    background: rgb(252,179,137);
+                    background: linear-gradient(90deg, rgba(252,179,137,1) 3%, rgba(201,38,2,1) 100%);
+                }
+
+                &.message-success {
+                    background: rgb(168,210,91);
+                    background: linear-gradient(90deg, rgba(168,210,91,1) 0%, rgba(59,115,23,1) 100%);
+                }
+            }
+        }
+        .dev-by-logo {
+            background-image: url('https://imageupload.io/ib/dhDPaBAgJTHKbgD_1696665634.png');
+            background-size: cover;  /* Cover the entire div */
+            background-position: center;  /* Center the image */
+        }
+    }
+}
