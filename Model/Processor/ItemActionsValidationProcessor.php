@@ -13,7 +13,7 @@ use Ytec\RuleEligibilityCheck\Model\HumanReadableRuleFormatter;
  *
  * @package Ytec\RuleEligibilityCheck\Model\Processor
  */
-class ItemActionsValidatorProcessor implements ValidationStepProcessorInterface
+class ItemActionsValidationProcessor implements ValidationStepProcessorInterface
 {
     public const NO_ITEMS_IN_THE_CART_MEET_THE_RULE = 'No items in the cart meet the rule\'s action criteria: %1.';
     private ?Phrase $failedMessage = null;

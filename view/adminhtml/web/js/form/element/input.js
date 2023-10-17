@@ -11,8 +11,9 @@ define([
     'Magento_Ui/js/form/element/abstract',
     'mage/url',
     'mage/url',
+    'mage/translate',
     'ko'
-], function ($, uiRegistry, Abstract, urlBuilder, urlFetcher, ko) {
+], function ($, uiRegistry, Abstract, urlBuilder, urlFetcher, __, ko) {
     'use strict';
 
     /**
@@ -29,7 +30,8 @@ define([
             success: ko.observable(false),
             ruleId: null,
             imports: {
-                update: '${ $.parentName }.customer_id:value'
+                update: '${ $.parentName }.customer_id:value',
+                isEnabled: '${ $.provider }:data.rule_eligibility_checker_enabled',
             }
         },
 
@@ -49,6 +51,15 @@ define([
             }
 
             return this;
+        },
+
+        /**
+         * Hide/Show the component based on module's config.
+         *
+         * @param {boolean} enabled
+         */
+        isEnabled: function (enabled) {
+            this.visible(enabled);
         },
 
         /**
@@ -78,8 +89,6 @@ define([
             let ajaxUrl = urlBuilder.build(this.getEligibilityUrl);
             let customerId = this.value();
 
-            console.log(this.ruleId, uiRegistry);
-
             $.ajax({
                 showLoader: true,
                 url: ajaxUrl,
@@ -94,7 +103,7 @@ define([
                 this.setMessage(response.message);
             }.bind(this)).fail(function () {
                 this.setSuccess(false);
-                this.setMessage('Error: Something went wrong!');
+                this.setMessage(__('Error: Something went wrong!'));
             }.bind(this));
         }
     });

@@ -61,19 +61,19 @@ class Check extends Action
             $eligibility = $this->ruleEligibilityCheck->checkRuleEligibility($customerId, $ruleId);
 
             $result->setData([
-                'isCustomerEligible' => $eligibility['isCustomerEligible'],
-                'message' => $eligibility['isCustomerEligible'] ?
+                RuleEligibilityCheckInterface::IS_CUSTOMER_ELIGIBLE => $eligibility['isCustomerEligible'],
+                'message' => $eligibility[RuleEligibilityCheckInterface::IS_CUSTOMER_ELIGIBLE] ?
                     __('Oohah. The customer can benefit of this rule!') :
-                    __($eligibility['validationErrorMessage'])
+                    __($eligibility[RuleEligibilityCheckInterface::VALIDATION_ERROR_MESSAGE])
             ]);
         } catch (NoSuchEntityException $ex) {
             $result->setData([
-                'isCustomerEligible' => false,
+                RuleEligibilityCheckInterface::IS_CUSTOMER_ELIGIBLE => false,
                 'message' => __('Make sure the rule and the customer exist and try again.')
             ]);
         } catch (LocalizedException|\Exception $ex) {
             $result->setData([
-                'isCustomerEligible' => false,
+                RuleEligibilityCheckInterface::IS_CUSTOMER_ELIGIBLE => false,
                 'message' => __('Something went wrong, please try again later.')
             ]);
         }

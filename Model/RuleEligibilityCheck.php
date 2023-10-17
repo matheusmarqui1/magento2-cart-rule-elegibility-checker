@@ -77,8 +77,8 @@ class RuleEligibilityCheck implements RuleEligibilityCheckInterface
             ]);
 
             if (!$isProcessorValidated) {
-                $this->response['isCustomerEligible'] = false;
-                $this->response['validationErrorMessage'] = $processor->getFailedMessage();
+                $this->response[self::IS_CUSTOMER_ELIGIBLE] = false;
+                $this->response[self::VALIDATION_ERROR_MESSAGE] = $processor->getFailedMessage();
                 return $this->response;
             }
         }

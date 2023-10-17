@@ -12,7 +12,7 @@ use Ytec\RuleEligibilityCheck\Model\HumanReadableRuleFormatter;
  *
  * @package Ytec\RuleEligibilityCheck\Model\Processor
  */
-class RuleConditionsValidatorProcessor implements ValidationStepProcessorInterface
+class RuleConditionsValidationProcessor implements ValidationStepProcessorInterface
 {
     const THE_CART_DOES_NOT_MEET_THE_CONDITIONS = 'The cart does not meet the conditions of rule %1: %2.';
     private ?Phrase $failedMessage = null;
