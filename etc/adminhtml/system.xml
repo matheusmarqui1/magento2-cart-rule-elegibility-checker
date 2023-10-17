@@ -11,7 +11,7 @@
             <resource>Ytec_RuleEligibilityCheck::eligibility_check</resource>
             <class>separator-top</class>
             <group id="general" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
-                <label>Order Export</label>
+                <label>General</label>
                 <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
