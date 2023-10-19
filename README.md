@@ -1,4 +1,18 @@
+<div align="center">
+
+![Magento 2 Easy Template Path Hints](https://i.imgur.com/d8QEHRb.png)
 # Ytec Rule Eligibility Check for Magento 2
+
+</div>
+
+<div align="center">
+
+[![Packagist Version](https://img.shields.io/packagist/v/ytec/rule-eligibility-check?logo=packagist&style=for-the-badge)](https://packagist.org/packages/ytec/rule-eligibility-check)
+[![Packagist Downloads](https://img.shields.io/packagist/dt/ytec/rule-eligibility-check.svg?logo=composer&style=for-the-badge)](https://packagist.org/packages/ytec/rule-eligibility-check/stats)
+![Supported Magento Versions](https://img.shields.io/badge/magento-%202.4.x-brightgreen.svg?logo=magento&longCache=true&style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-green?color=%23234&style=for-the-badge)
+
+</div>
 
 ## Introduction
 
