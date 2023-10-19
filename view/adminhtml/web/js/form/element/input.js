@@ -30,7 +30,7 @@ define([
             success: ko.observable(false),
             ruleId: null,
             imports: {
-                update: '${ $.parentName }.customer_id:value',
+                checkEligibilityForCustomer: '${ $.parentName }.customer_id:value',
                 isEnabled: '${ $.provider }:data.rule_eligibility_checker_enabled',
             }
         },
@@ -81,11 +81,12 @@ define([
         },
 
         /**
-         * Updates the component based on the value of the associated UI form element.
+         * Call the eligibility checker service to check if the rule is applicable
+         * for the given customer and update the component accordingly.
          *
-         * @param {string|number} value - The value of the associated form element.
+         * @return {void}
          */
-        update: function (value) {
+        checkEligibilityForCustomer: function () {
             let ajaxUrl = urlBuilder.build(this.getEligibilityUrl);
             let customerId = this.value();
 
