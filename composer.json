@@ -1,7 +1,19 @@
 {
     "name": "ytec/rule-eligibility-check",
     "description": "Rule eligibility checker for Magento 2",
-    "keywords": ["magento", "magento2 extension", "magento 2 module", "extension", "module", "magento2 module", "magento 2 module", "promotions", "cart rules", "customer", "testing"],
+    "keywords": [
+        "magento",
+        "magento2 extension",
+        "magento 2 module",
+        "extension",
+        "module",
+        "magento2 module",
+        "magento 2 module",
+        "promotions",
+        "cart rules",
+        "customer",
+        "validation"
+    ],
     "type": "magento2-module",
     "version": "1.1.4",
     "authors": [
@@ -16,7 +28,9 @@
         "php": ">=7.4"
     },
     "autoload": {
-        "files": [ "registration.php" ],
+        "files": [
+            "registration.php"
+        ],
         "psr-4": {
             "Ytec\\RuleEligibilityCheck\\": ""
         }
