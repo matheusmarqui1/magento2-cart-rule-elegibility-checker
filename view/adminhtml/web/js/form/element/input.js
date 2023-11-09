@@ -42,6 +42,7 @@ define([
          */
         initialize: function () {
             this._super();
+            this.disableIfNewRule();
 
             let segments = window.location.pathname.split('/');
             let idIndex = segments.indexOf('id');
@@ -60,6 +61,14 @@ define([
          */
         isEnabled: function (enabled) {
             this.visible(enabled);
+        },
+
+        /**
+         * Hide the component if it's a new rule (not saved yet).
+         *
+         */
+        disableIfNewRule: function () {
+            this.visible(window.location.pathname.split('/').indexOf('new') === -1);
         },
 
         /**

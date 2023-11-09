@@ -14,8 +14,12 @@ class DataProviderPlugin
         $this->config = $config;
     }
 
-    public function afterGetData(MagentoDataProvider $subject, array $result): array
+    public function afterGetData(MagentoDataProvider $subject, ?array $result): ?array
     {
+        if (is_null($result)) {
+            return null;
+        }
+
         foreach ($result as &$data) {
             $data['rule_eligibility_checker_enabled'] = $this->config->isModuleEnabled();
         }
