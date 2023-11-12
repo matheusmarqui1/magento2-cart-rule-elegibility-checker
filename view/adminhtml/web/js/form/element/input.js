@@ -28,10 +28,13 @@ define([
             customScope: 'data',
             messageText: ko.observable(''),
             success: ko.observable(false),
+            store: ko.observable(null),
+            enabled: ko.observable(false),
             ruleId: null,
             imports: {
                 checkEligibilityForCustomer: '${ $.parentName }.customer_id:value',
-                isEnabled: '${ $.provider }:data.rule_eligibility_checker_enabled',
+                setIsEnabled: '${ $.provider }:data.rule_eligibility_checker_enabled',
+                storeToCheckEligibility: '${ $.provider }:data.store_to_check_customer_eligibility'
             }
         },
 
@@ -42,7 +45,7 @@ define([
          */
         initialize: function () {
             this._super();
-            this.disableIfNewRule();
+            this.disableIfApplicable();
 
             let segments = window.location.pathname.split('/');
             let idIndex = segments.indexOf('id');
@@ -55,20 +58,45 @@ define([
         },
 
         /**
-         * Hide/Show the component based on module's config.
+         * Set if the component must be shown based on module's config and if it's a new rule.
          *
          * @param {boolean} enabled
          */
-        isEnabled: function (enabled) {
-            this.visible(enabled);
+        setIsEnabled: function (enabled) {
+            let isNewRule = window.location.pathname.split('/').indexOf('new') !== -1;
+            this.enabled(!isNewRule && enabled);
         },
 
         /**
          * Hide the component if it's a new rule (not saved yet).
          *
          */
-        disableIfNewRule: function () {
-            this.visible(window.location.pathname.split('/').indexOf('new') === -1);
+        disableIfApplicable: function () {
+            this.visibleContainer(this.enabled());
+        },
+
+        /**
+         * Sets the store ID to get the eligibility of the customer.
+         *
+         * @param {string} storeId - The store ID.
+         */
+        storeToCheckEligibility: function (storeId) {
+            this.store(storeId);
+        },
+
+        /**
+         * Hides/shows the container of the module in the cart rule form.
+         *
+         * @param {boolean} visible
+         */
+        visibleContainer: function (visible) {
+            uiRegistry.async('index = rule_eligibility_container')(function (container) {
+                container._elems.forEach(function (element) {
+                    uiRegistry.async(element)(function (elementUiClass) {
+                        elementUiClass.visible(visible);
+                    });
+                });
+            });
         },
 
         /**
@@ -104,7 +132,8 @@ define([
                 url: ajaxUrl,
                 data: {
                     rule_id: this.ruleId,
-                    customer_id: customerId
+                    store_id: this.store(),
+                    customer_id: customerId,
                 },
                 type: "POST",
                 dataType: 'json'

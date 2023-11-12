@@ -28,9 +28,10 @@ interface RuleEligibilityCheckInterface
      *
      * @param int $customerId Customer ID
      * @param int $ruleId Cart rule ID
+     * @param int $storeId Store ID
      * @return array with a boolean value to indicate if the customer is eligible, and a validation message if applicable.
-     * @throws \Magento\Framework\Exception\NoSuchEntityException If customer or rule does not exist
+     * @throws \Magento\Framework\Exception\NoSuchEntityException If customer, rule or store does not exist
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function checkRuleEligibility(int $customerId, int $ruleId): array;
+    public function checkRuleEligibility(int $customerId, int $ruleId, int $storeId): array;
 }

@@ -56,9 +56,10 @@ class Check extends Action
 
         $ruleId = (int)$this->getRequest()->getParam('rule_id');
         $customerId = (int)$this->getRequest()->getParam('customer_id');
+        $storeId = (int)$this->getRequest()->getParam('store_id');
 
         try {
-            $eligibility = $this->ruleEligibilityCheck->checkRuleEligibility($customerId, $ruleId);
+            $eligibility = $this->ruleEligibilityCheck->checkRuleEligibility($customerId, $ruleId, $storeId);
 
             $result->setData([
                 RuleEligibilityCheckInterface::IS_CUSTOMER_ELIGIBLE => $eligibility['isCustomerEligible'],

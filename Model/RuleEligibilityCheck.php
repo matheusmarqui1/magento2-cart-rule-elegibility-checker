@@ -57,10 +57,10 @@ class RuleEligibilityCheck implements RuleEligibilityCheckInterface
     /**
      * @inheritDoc
      */
-    public function checkRuleEligibility(int $customerId, int $ruleId): array
+    public function checkRuleEligibility(int $customerId, int $ruleId, int $storeId): array
     {
         /** @var CartInterface|AbstractModel $cart */
-        $cart = $this->cartRepository->getActiveForCustomer($customerId);
+        $cart = $this->cartRepository->getActiveForCustomer($customerId, !empty($storeId) ? [$storeId] : []);
 
         /** @var Rule $rule */
         $rule = $this->ruleCollectionFactory->create()
