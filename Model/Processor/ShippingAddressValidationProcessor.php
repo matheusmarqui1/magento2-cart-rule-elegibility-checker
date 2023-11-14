@@ -95,7 +95,7 @@ class ShippingAddressValidationProcessor implements \Ytec\RuleEligibilityCheck\A
     private function searchForShippingConditions(array $conditions): bool
     {
         /** Using str_pos instead of str_contains for php 7.4 compatibility. */
-        if (isset($conditions['attribute']) && strpos($conditions['attribute'], 'shipping_') !== false) {
+        if (!empty($conditions['attribute']) && strpos($conditions['attribute'], 'shipping_') !== false) {
             return true;
         }
 
