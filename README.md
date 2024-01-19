@@ -1,6 +1,6 @@
 <div align="center">
 
-![Magento 2 Easy Template Path Hints](https://i.imgur.com/d8QEHRb.png)
+![Magenot 2 Rule Eligibility Check for Magento 2](https://i.imgur.com/d8QEHRb.png)
 # Ytec Rule Eligibility Check for Magento 2
 
 </div>
