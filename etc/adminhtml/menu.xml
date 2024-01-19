@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!-- Submenu Item for Ytec Rule Eligibility Check Configuration -->
+        <add id="Ytec_RestPdfInvoice::ytec_rule_eligibility_checker" title="Rule Eligibility Check" module="Ytec_RuleEligibilityCheck"
+             sortOrder="10" parent="Ytec_Base::ytec_menu"
+             action="adminhtml/system_config/edit/section/ytec_rule_eligibility_checker"
+             resource="Ytec_RuleEligibilityCheck::eligibility_check"/>
+    </menu>
+</config>

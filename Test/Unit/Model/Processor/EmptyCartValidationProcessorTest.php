@@ -72,7 +72,7 @@ class EmptyCartValidationProcessorTest extends TestCase
 
         $this->assertFalse($this->processor->execute($ruleMock, $cartMock));
         $this->assertEquals(
-            new Phrase('The cart of customer %1 on store %2 is empty.', ['Matheus', 'default']),
+            new Phrase(EmptyCartValidationProcessor::THE_CART_FOR_CUSTOMER_IS_EMPTY, ['Matheus', 'default']),
             $this->processor->getFailedMessage()
         );
     }
